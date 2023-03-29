@@ -1,16 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import AppNavigation from "./src/navigation/AppNavigation";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./src/screens/HomeScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <>
-      <NavigationContainer>
-        <AppNavigation />
-      </NavigationContainer>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({});
